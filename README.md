@@ -1,24 +1,52 @@
-# README
+# <B-MKO>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要：
+美婿は美に寄り添える人を増やせることを目的としたサイトです。
+### サイトテーマ
+<美容×レビュー>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<若者も美に注目している現在のニーズに合わせたい。
+　絶対に無くならないかつ今後もどんどん進化していく分野に着目したため>
 
-* Ruby version
+### ターゲットユーザ
+<10代～(求める人がターゲットユーザ)>
 
-* System dependencies
+### 主な利用シーン
+<日常生活や入浴後にご利用いただくなど、商品によって用途をご確認いただきご利用くださいませ>
 
-* Configuration
+## 設計書
+<
+顧客側
 
-* Database creation
+会員登録がまだの方
+・会員登録をしていただければ、どなたでも販売中の商品を閲覧することができます。
+・無料で会員登録ができます。
 
-* Database initialization
+会員済
+・販売中の商品を閲覧可能
+・ログインすることができます。
+・ログアウトすることができます。(ログイン時のみ機能を利用できます。)
+・商品を投稿することができます。
+・投稿した商品を検索することができます。
+・商品に対してレビューをすることができます。
+・レビューに対してコメントとしてリアクションをすることができます。
+・期間や評価などを指定することでほしい情報を閲覧することが可能です。
+・他の会員をフォローすることができます。
+・投稿した商品を公開・非公開に選択することができます。
 
-* How to run the test suite
+管理者側
+・管理者様専用のメールアドレス・パスワードでログインできます。
+・ログアウトができます。(ログイン時のみ機能を利用できます。)
+・登録会員情報を確認することができます。
+・不適切な投稿を行う会員の利用を停止することができます。
+・不適切なレビューを確認し、削除することが可能です。
 
-* Services (job queues, cache servers, search engines, etc.)
+>
 
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
