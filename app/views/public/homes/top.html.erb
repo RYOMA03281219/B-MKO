@@ -1,2 +1,40 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr><th>ジャンル</th></tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr><td><%= genre.name %></td></tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-9">
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+        <p>B-MKOへようこそ！</p>
+        <p>レビューや商品の評価を参考に自身にあった商品をお探しください。</p>
+        <p>是非、おすすめの商品やレビューの記載をしてみてください。</p>
+        <p>購入には会員登録が必要になります。</p>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <h2 class="text-center text-about-title">おすすめ商品</h2>
+      <table class="table table-borderless">
+        <% @recommend_items.each do |item| %>
+          <div class="col-md-3">
+            <%= link_to item_path(item) do %>
+              <p><%= image_tag item.get_image(200,200)%></p>
+            <% end %>
+              <p><%= item.name %></p>
+              <p>￥<%= item.price %></p>
+          </div>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
