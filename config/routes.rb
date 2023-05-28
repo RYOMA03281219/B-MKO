@@ -21,6 +21,10 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 scope module: :public do
 root 'homes#top'
+get '/homes/about' => 'homes#about'
+
+
+
 end
 
   # devise_for :customers
