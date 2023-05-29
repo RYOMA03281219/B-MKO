@@ -1,2 +1,47 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <h2>商品詳細</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <%#= image_tag @item.get_image(300,300) %>
+    </div>
+
+    <div class="col-md-9">
+      <table class="table table-borderless">
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.name %></td>
+        </tr>
+
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.introduction %></td>
+        </tr>
+
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @genre.name %></td>
+        </tr>
+
+        <tr>
+          <th>税込価格(税抜価格)</th>
+          <td><%= @item.with_tax_price.to_s(:delimited) %>(<%= @item.price.t_s(:delimited) %>)</td>
+        </tr>
+
+        <tr>
+          <th>販売ステータス</th>
+          <td>
+            <% if @item.is_active %>
+              <p>販売中</p>
+            <% else %>
+              <p>販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+
+      <div id="item-action-btn">
+        <%= link_to "編集", edit_item_path(@item), class: "btn btn-default btn-lg btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
