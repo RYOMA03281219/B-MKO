@@ -1,2 +1,36 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class="container">
+  <h2>注文情報入力</h2>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">col-md-8 col-md-offset-2
+      <%= form_with model: @orders, url: orders_confirm_path, method: :post do |f| %>
+        <table class="table table-borderless">
+          <tr>
+            <strong><%= f.label :支払方法 %></strong>
+            <div class="radio-inline">
+              <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
+              <%= f.label :クレジットカード, class: "job_type_label" %>
+            </div>
+            <div class="radio-inline">
+              <%= f.radio_button :payment_method, :銀行振込 %>
+              <%= f.label :銀行振込, class: "job_type_label" %>
+            </div>
+          </tr>
+          <tr>
+            <strong><%= f.label :お届け先 %></strong>
+            <td>
+              <p><%= f.label :ご自身の住所 %></p>
+              <p>
+              〒<%= @customer.postal_code %><%= @customer.address %>
+                <%= @customer.last_name %><%= @customer.first_name %>
+              </p>
+            </td>
+          </tr>
+          <td></td>
+        </table>
+        <div class="action-group">
+          <%= f.submit "確認画面", class: "btn btn-default btn-lg btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
