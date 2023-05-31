@@ -6,7 +6,8 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @customer = current_customer
-    @orders = current_customer.order.all
+    @order = current_customer.order.all
+    @order_details = @order.order_details
     @order_count = Order.all.count
     @total = (@order.inject(0) {|sum, order| sum + order.subtotal}) + @postage
     @postage = 800
@@ -37,13 +38,19 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @customer = current_customer
+    @orders = current_customer.orders.all
   end
 
   def show
+    @customer = current_customer
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+    @total = (@order_details.inject(0) {|sum, order_details| sum + order_details.subtotal})
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :postage, :billing_amount)
   end
