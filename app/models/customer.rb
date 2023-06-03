@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   validates :last_name, presence: true
   validates :first_name, presence: true
+  validates :email, uniqueness: true, presence: true
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
@@ -13,6 +14,6 @@ class Customer < ApplicationRecord
   has_many :addresses
 
   def active_for_authentication?
-    super && (is_deleted == false)
+    super && (is_delete == false)
   end
 end
