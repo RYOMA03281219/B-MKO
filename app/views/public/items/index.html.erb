@@ -16,7 +16,7 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
-              <td><%= link_to item.name, item_path(item.id) %></td>
+              <td><%= image_tag item.get_image(50,50) %><%= link_to item.name, item_path(item.id) %></td>
               <td><%= item.price.to_s(:delimited) %></td>
               <td><%= item.genre_id %></td>
               <td>
