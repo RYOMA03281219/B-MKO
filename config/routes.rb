@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  namespace :public do
+    get 'password_resets/new'
+    get 'password_resets/edit'
+  end
 # 管理者用
 # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -9,8 +12,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get '' => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
     resources :genres, only: [:index, :create, :edit, :update]
+    get 'items/index'
   end
 
     # 顧客用
@@ -26,12 +29,7 @@ Rails.application.routes.draw do
     get '/customers/cancellation' => 'customers#cancellation'
     patch '/customers/withdrawal' => 'customers#withdrawal'
     resources :customer, only:[:show, :edit, :update]
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-    resources :cart_items, only:[:index, :update, :destroy, :create]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
-    post '/orders/confirm' => 'orders#confirm'
-    get '/orders/completion' => 'orders#completion'
-    resources :orders, only:[:new, :create, :index, :show]
-    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :password_resets, only: [:new, :create, :edit, :update]
   end
 end
