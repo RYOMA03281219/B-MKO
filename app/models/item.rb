@@ -5,7 +5,9 @@ class Item < ApplicationRecord
   validates :price, numericality: {only_integer: true}
 
   belongs_to :genre
+  belongs_to :customer
   has_many :order_details
+
   has_one_attached :image
 
   def get_image(width, height)
