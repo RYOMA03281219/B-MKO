@@ -14,6 +14,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
 
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -35,11 +36,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
-      t.string :last_name, null: false
-      t.string :first_name, null: false
-      t.string :postal_code, null: false
-      t.string :address, null: false
-      t.string :telephone_number, null: false
+      t.string :name, null: false
       t.boolean :is_delete, default: false
       t.timestamps null: false
     end
