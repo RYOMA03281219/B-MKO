@@ -10,7 +10,7 @@
   </head>
   <body>
     <% if admin_signed_in? %>
-      <%= render 'layouts/sidebar' %>
+      <%= render 'layouts/admin_header' %>
     <% else customer_signed_in? %>
       <%= render 'layouts/customer_header' %>
     <% end %>
