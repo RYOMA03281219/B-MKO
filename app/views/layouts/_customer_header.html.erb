@@ -1,33 +1,58 @@
-<header class="navbar navbar-default">
-  <div class="container">
-    <nav class="navbar navbar-header navbar-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
       <div class="logo">
         <% link_to root_path do %>
           <%= image_tag 'B-MKO.jpg', class: "logo_image", fallback: "ロゴ画像" %>
         <% end %>
       </div>
-    </nav>
+    </a>
 
     <nav>
-      <ul class="navbar navbar-nav navbar-left">
-        <% if customer_signed_in? %>
-          <li class="button"><%= link_to "マイページ", customer_path(current_customer) %></li>
-          <li class="button"><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li>
-          <li class="button"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        <% else %>
-          <li class="nav-item">
-            <i class="fas fa-link">
-              <%= link_to "About", homes_about_path, class: 'nav-link text-dark' %></li>
-            </i>
-          <li class="nav-item"><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li>
-        <% end %>
-      </ul>
+        <form>
+          <ul class="navbar navbar-nav navbar-left">
+            <% if customer_signed_in? %>
+              <li class="nav-item"><%= link_to "マイページ", customer_path(current_customer) %></li>
+              <li class="nav-item"><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            <% else %>
+            　<!--Aboutのレイアウト-->
+              <button type="button" class="btn btn-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                  <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                  <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+                <%= link_to "About", homes_about_path %>
+              </button>
+              <!--Itemのレイアウト-->
+              <button type="button" class="btn btn-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                </svg>
+                <%= link_to "商品一覧", items_path %>
+              </button>
+              <!--新規アカウント登録のレイアウト-->
+              <button type="button" class="btn btn-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                  <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+                <%= link_to "新規登録", new_customer_registration_path %>
+              </button>
+              <!--ログインのレイアウト-->
+              <button type="button" class="btn btn-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-heart" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z"/>
+                </svg>
+                <%= link_to "ログイン", new_customer_session_path %>
+              </button>
+            <% end %>
+          </ul>
+        </form>
     </nav>
   </div>
-</header>
+</nav>
