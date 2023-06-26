@@ -1,20 +1,44 @@
-<header class="navbar navbar-default">
-  <div class="container">
-    <nav class="navbar navbar-nav navbar-right">
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>B-MKO</title>
+    <link rel="stylesheet" href="css/application.scss" />
+  </head>
+
+  <body>
+    <h1>
       <div class="logo">
-        <% link_to root_path do %>
-          <%= image_tag 'B-MKO.jpg', class: "logo_image", fallback: "ロゴ画像" %>
+        <%= link_to root_path do %>
+          <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
         <% end %>
       </div>
-    </nav>
+    </h1>
 
-    <nav>
-      <ul class="navbar navbar-nav navbar-left">
-        <% if admin_signed_in? %>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <body>
+      <% if admin_signed_in? %>
+        <div id="sp-menu">
+          <h2>MENU</h2>
+          <ul>
+            <li class="nav-item"><%= link_to "顧客一覧", admin_customers_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><%= link_to "投稿一覧画面", admin_genres_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-danger' %></li>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </ul>
+        </div>
+
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+
         <% else %>
           <li class="nav-item">
             <i class="fas fa-link"></i>
@@ -23,7 +47,8 @@
           <li class="nav-item"><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li>
           <li class="nav-item"><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li>
         <% end %>
-      </ul>
     </nav>
   </div>
 </header>
+</body>
+</html>
