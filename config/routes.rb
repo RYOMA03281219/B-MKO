@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get '' => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :items, only: [:show, :edit, :update]
+    resources :items, only: [:index, :show, :edit, :update]
     get 'items/index'
   end
 
