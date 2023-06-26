@@ -1,1 +1,15 @@
+<div class="container">
+  <div class="row">
+    <h2>投稿詳細画面</h2>
+    <div class="col-md-4">
+      <p><%= image_tag @item.image(300,300)%></p>
+    </div>
+
+    <div class="col-md-5">
+      <p><%= @item.name %></p>
+      <p><%= @item.introduction %></p>
+      <p><%= @item.genre.name %></p>
+    </div>
+  </div>
+</div>
 
