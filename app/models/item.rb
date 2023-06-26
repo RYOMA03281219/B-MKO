@@ -1,8 +1,7 @@
 class Item < ApplicationRecord
-  validates :image, presence: {message: '選択されていません'}
+  validates :image, presence: true
   validates :name, presence: true
   validates :introducton, presence: true
-  validates :price, numericality: {only_integer: true}
 
   belongs_to :genre
   belongs_to :customer
