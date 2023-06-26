@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <div class="logo">
-        <% link_to root_path do %>
-          <%= image_tag 'B-MKO.jpg', class: "logo_image", fallback: "ロゴ画像" %>
+        <%= link_to root_path do %>
+          <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
         <% end %>
       </div>
     </a>
@@ -56,3 +56,23 @@
     </nav>
   </div>
 </nav>
+ <body>
+  <div id="sp-menu">
+    <h2>MENU</h2>
+    <ul>
+      <li><a href="#">MENU1</a></li>
+      <li><a href="#">MENU2</a></li>
+      <li><a href="#">MENU3</a></li>
+      <li><a href="#">MENU4</a></li>
+      <li><a href="#">MENU5</a></li>
+    </ul>
+  </div>
+
+  <div id="hm-icon">
+    <a class="menu-trigger" href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+<body>
