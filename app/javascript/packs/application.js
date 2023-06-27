@@ -11,6 +11,8 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import '../stylesheets/application.scss'
+require('../script')
+require('../jquery.min')
 
 Rails.start()
 Turbolinks.start()
