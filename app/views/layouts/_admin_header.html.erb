@@ -1,21 +1,12 @@
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>B-MKO</title>
-    <link rel="stylesheet" href="css/application.scss" />
-  </head>
+<header>
+  <h1>
+    <div class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
+      <% end %>
+    </div>
+  </h1>
 
-  <body>
-    <h1>
-      <div class="logo">
-        <%= link_to root_path do %>
-          <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
-        <% end %>
-      </div>
-    </h1>
-
-    <body>
       <% if admin_signed_in? %>
         <div id="sp-menu">
           <h2>MENU</h2>
@@ -50,5 +41,4 @@
     </nav>
   </div>
 </header>
-</body>
-</html>
+
