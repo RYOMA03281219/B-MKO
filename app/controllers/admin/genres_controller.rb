@@ -13,23 +13,19 @@ class Admin::GenresController < ApplicationController
     end
   end
 
-  def edit
-    @genre = Genre.find(params[:id])
-  end
-
   def update
     @genre = Genre.find(params[:id])
-    if @genre.update
+    if @genre.update(genre_params)
       redirect_to admin_genres_path
     else
-      render "edit"
+      render "index"
     end
   end
 
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
-    redirect_to request.referer
+    redirect_to admin_genres_path
   end
 
   private

@@ -1,7 +1,7 @@
 <div class="container">
   <h2>ジャンル一覧・追加</h2>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-12">
 
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
         <div class="form-group">
@@ -21,18 +21,15 @@
         <tbody>
           <% @genres.each do |genre| %>
             <tr>
-              <td><%= genre.name %></td>
-              <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-info" %></td>
-              <td><%#= f.submit "削除", method: :delete, class: "btn btn-danger" %></td>
-              <!--<button type="button" class="btn btn-danger">削除</button>-->
+              <%= form_with model: genre, url: admin_genre_path(genre.id) do |f| %>
+                <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+                <td><%= f.submit "編集", class: "btn btn-default btn-lg btn-info" %></td>
+              <% end %>
+              <td><%= link_to "削除する", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-default btn-lg btn-danger" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
-
-    <div class="col-md-7">
-      <%= render 'edit', genre: @genre %>
     </div>
   </div>
 </div>
