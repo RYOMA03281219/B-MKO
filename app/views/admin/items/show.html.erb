@@ -6,9 +6,13 @@
     </div>
 
     <div class="col-md-5">
-      <p><%= @item.name %></p>
-      <p><%= @item.introduction %></p>
-      <p><%= @item.genre.name %></p>
+      <p><span class="line">投稿商品名:<%= @item.name %></span></p>
+      <p><span class="line">商品説明:<%= @item.introduction %></span></p>
+      <p><span class="line">ジャンル名:<%= @item.genre_name %></span></p>
+      <p><span class="line">レビュー:<%#= @item.name %></span></p>
+      <p><span class="line">評価機能:<%#= @item.name %></span></p>
+      <p><span class="line"><%= link_to "投稿者:", admin_customer_path(customer.id) %></span></p>
+      <!--いいね機能を追加必須-->
     </div>
   </div>
 </div>
