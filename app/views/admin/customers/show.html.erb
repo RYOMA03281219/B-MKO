@@ -22,13 +22,16 @@
         <tr>
           <td>Member Status</td>
           <td>
-            <%= if customer.is_deleted %>
-              <p>有効</p>
+            <% if @customer.is_deleted %>
+              退会済み
+            <%= link_to "有効にする", admin_withdrawal_path(@customer.id), method: :patch, class: "btn btn-success" %>
             <% else %>
-              <p>退会</p>
+              有効
+            <%= link_to "退会させる", admin_withdrawal_path(@customer.id), method: :patch, class: "btn btn-danger" %>
             <% end %>
           </td>
         </tr>
+
       </table>
       <div class="item-action-btn">
         <%= link_to "Edit", edit_admin_customer_path(@customer), class: "btn btn-default btn-lg btn-info" %>
