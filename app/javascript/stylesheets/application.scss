@@ -112,11 +112,13 @@
 
 .page-about01_title {
   font-size: 35px;
+  margin-bottom: 55px;
 }
 
 .mission .container {
-    margin-bottom: 0;
-    margin-top: 60px;
+  margin-bottom: 0;
+  margin-top: 60px;
+  padding: 0 0 100px;
 }
 
 .body-line {
@@ -124,18 +126,53 @@
   width: 900px;
 }
 
-// aboutのboxサイズ
-.box1 {
-  width: 150px;
-  height: 200px;
-  background: rgb(235, 135, 212);
+.box-left {
+  align-items: flex-start;
+  display: flex;
   position: relative;
 }
-.box2 {
-  width: 50px;
-  height: 100px;
-  background: rgb(255, 247, 107);
-  position: absolute;
-  top: 20%;
-  left: 10%;
+
+.box-header {
+  padding: 93px 114px 93px 46px;
+  background-color: #438f68;
+  box-sizing: border-box;
+  position: relative;
+  width: 424px;
+  z-index: 0;
+}
+
+.box-title {
+  color: #fff;
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.box-right {
+  margin-left: -84px;
+  margin-top: 50px;
+  padding: 50px 62px 50px 50px;
+  background-color: #F5F3ED;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.8;
+  position: relative;
+  width: 560px;
+  z-index: 1;
+}
+
+// topページのレイアウト
+.page-top_title {
+  font-size: 30px;
+}
+
+.top .container {
+  margin-bottom: 0;
+  margin-top: 60px;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px) rotate(0.0001deg);
+}
+
+.page-top01_title {
+  font-size: 35px;
+  margin-bottom: 55px;
 }
