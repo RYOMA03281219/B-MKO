@@ -22,6 +22,18 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def withdrawal
+    @customer = Customer.find(current_customer.id)
+    @customer.update(is_delete: !@customer.is_deleted)
+    if @customer.is_deleted
+       flash[:notice] = "退会処理を実行いたしました"
+    else
+       flash[:notice] = "有効にします"
+    end
+       redirect_to root_path
+  end
+
+
   private
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :postal_code, :address, :telephone_number, :is_deleted, :star)
