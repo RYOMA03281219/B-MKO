@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '' => 'homes#top'
+    patch "withdrawal/:id" => "customers#withdrawal", as: "withdrawal"
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :update, :destroy]
     resources :items, only: [:index, :show, :edit, :update]
