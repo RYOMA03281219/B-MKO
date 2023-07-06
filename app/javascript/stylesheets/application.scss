@@ -76,3 +76,16 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+//
+.menu-trigger.active span:nth-child(1) {
+    background-color: black !important;
+ }
+
+.menu-trigger.active span:nth-child(2) {
+    background-color: black !important;
+ }
+
+.menu-trigger.active span:nth-child(3) {
+    background-color: black !important;
+ }
