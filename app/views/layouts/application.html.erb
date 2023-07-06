@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <body>
     <% if admin_signed_in? %>
       <%= render 'layouts/admin_header' %>
@@ -19,7 +19,9 @@
     <% else %>
       <%= render 'layouts/no-signin'%>
     <% end %>
+
     <main><%= yield %></main>
+
     <%= render 'layouts/footer' %>
   </body>
 </html>
