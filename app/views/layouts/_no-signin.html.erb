@@ -1,15 +1,25 @@
 <header>
-  <h1>
-    <div class="logo">
-      <%= link_to root_path do %>
-        <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
-      <% end %>
-    </div>
-  </h1>
+  <div class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
+    <% end %>
+  </div>
 
   <div id="sp-menu">
     <h2>B-MKO</h2>
     <ul>
+      <li class="nav-item">
+        <button type="button" class="btn btn-black">
+          <%= link_to root_path, class: 'nav-link text-dark' do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg>
+          HOME
+          <% end %>
+        </button>
+      </li>
+
       <li class="nav-item">
         <button type="button" class="btn btn-black">
           <%= link_to homes_about_path, class: 'nav-link text-dark' do %>
@@ -74,13 +84,11 @@
     </ul>
   </div>
 
-  <body>
-    <div id="hm-icon">
-      <a class="menu-trigger" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-    </div>
-  <body>
+  <div id="hm-icon">
+    <a class="menu-trigger" href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+  </div>
 </header>
