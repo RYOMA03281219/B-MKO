@@ -14,7 +14,7 @@ import '../stylesheets/application.scss'
 require('../script')
 require('../jquery.min')
 window.$ = window.jQuery = require('jquery');
-import Raty from "raty.js"
+import Raty from "./raty.js"
 window.raty = function(elem,opt) {
   let raty =  new Raty(elem,opt)
   raty.init();

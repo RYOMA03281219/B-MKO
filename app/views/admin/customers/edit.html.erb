@@ -1,9 +1,7 @@
 <div class="container">
-  <h2>
-    <%= @customer.last_name %><%= @customer.first_name %>さんのMember Edit
-  </h2>
+  <h2><%= @customer.last_name %><%= @customer.first_name %>さんのMember Edit</h2>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">col-md-10 col-md-offset-1</div>
+    <div class="col-md-10 col-md-offset-1">
       <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
         <table class="table table-borderless">
           <tr>
@@ -15,21 +13,6 @@
             <td>Member Name</td>
             <td><%= f.text_field :last_name, class: 'btn-block' %></td>
             <td><%= f.text_field :first_name, class: 'btn-block' %></td>
-          </tr>
-
-          <tr>
-            <td>Post Code</td>
-            <td><%= f.text_field :postal_code, class: 'btm-block' %></td>
-          </tr>
-
-          <tr>
-            <td>Address</td>
-            <td><%= f.text_field :address, class: 'btm-block' %></td>
-          </tr>
-
-          <tr>
-            <td>Phone Number</td>
-            <td><%= f.text_field :telephone_number, class: 'btn-block' %></td>
           </tr>
 
           <tr>

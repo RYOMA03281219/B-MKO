@@ -1,9 +1,7 @@
 <div class="container">
-  <h2>
-    <%= @customer.last_name %><%= @customer.first_name %>さんのMember Details
-  </h2>
+  <h2><%= @customer.last_name %><%= @customer.first_name %>さんのMember Details</h2>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">col-md-10 col-md-offset-1</div>
+    <div class="col-md-10 col-md-offset-1">
       <table class="table table-striped">
         <tr>
           <td>Member Id</td>
@@ -14,25 +12,6 @@
           <td>Member Name</td>
           <td><%= @customer.last_name %></td>
           <td><%= @customer.first_name %></td>
-        </tr>
-
-        <!--<tr>-->
-        <!--  <td>フリガナ</td>-->
-        <!--  <td></td>-->
-        <!--</tr>-->
-        <tr>
-          <td>Post Code</td>
-          <td><%= @customer.postal_code %></td>
-        </tr>
-
-        <tr>
-          <td>Address</td>
-          <td><%= @customer.address %></td>
-        </tr>
-
-        <tr>
-          <td>Phone Number</td>
-          <td><%= @customer.telephone_number %></td>
         </tr>
 
         <tr>
