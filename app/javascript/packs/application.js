@@ -21,6 +21,14 @@ window.raty = function(elem,opt) {
   return raty;
 }
 
+$(function(){
+  ScrollReveal().reveal('.box', {
+    duration: 2000,
+    scale: 4,
+    reset: false
+  });
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
