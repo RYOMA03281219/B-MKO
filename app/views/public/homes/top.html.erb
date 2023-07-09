@@ -20,7 +20,7 @@
     <section class="home-top">
       <div class="body-line">
         <div class="text-center">
-          <h2 class="page-home01_title" date-scrollin="fadein">
+          <h2 class="page-home01_title">
             <span class="large">B-MKO</span>
           </h2>
         </div>
@@ -28,8 +28,8 @@
     </section>
 
     <section class="home-top-products">
-      <div class="home-top-products-head" data-scrollin>
-        <h2 class="home-top-products-title " date-scrollin="fadein">
+      <div class="home-top-products-head">
+        <h2 class="home-top-products-title">
           <div class="row">
             <div class="col-xs-12 cover-img" style="background-image:url('https://www.pakutaso.com/shared/img/thumb/skincareIMGL9346.jpg');">
               <div class="cover-text text-center">
@@ -42,9 +42,9 @@
             </div>
           </div>
         </h2>
-        <div class="home-top-products-description" date-scrollin>
+        <div class="home-top-products-description">
           <span class="home-top-products-description-border">
-            <p class="box-text" date-scrollin="fadein" >
+            <p class="box-text" >
               こちらより投稿された商品一覧を確認することができます。<br>
               以下おすすめ商品からも投稿した商品や<br>
               投稿者のページへ飛ぶことができます。<br>
@@ -54,54 +54,24 @@
         </div>
       </div>
 
-
-
+      <div class="text-center">
+        <h2 class="home-top-item">
+          <span class="large">NEW POSTS</span>
+        </h2>
+      </div>
+      <ul class="home-top-products-item">
+        <li class="home-top-products-item-list">
+          <% @recommend_items.each do |item| %>
+            <div class="home-top-products-item-img">
+              <%= link_to item_path(item) do %>
+                <p><%= image_tag item.get_image %></p>
+              <% end %>
+              <p><%= item.name %></p>
+              <p><%= item.genre %></p>
+            </div>
+          <% end %>
+        </li>
+      </ul>
     </section>
   </div>
-
-
-    <div class="col-md-3">
-      <div class="mb-5">
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <span class="border border-5">商品一覧</span>
-      </div>
-    </div>
-
-      <div class="col-md-9">
-      <h2 class="text-center text-about-title">商品情報</h2>
-      <table class="table table-borderless">
-        <% @recommend_items.each do |item| %>
-          <div class="col-md-3">
-            <%= link_to item_path(item) do %>
-              <p><%= image_tag item.get_image(200,200)%></p>
-            <% end %>
-              <p><%= item.name %></p>
-              <p>￥<%= item.price %></p>
-          </div>
-        <% end %>
-      </table>
-    </div>
-
-    <br></br>
-    <div class="col-md-12">
-      <div class="mb-5">
-        <div class="text-center">
-          <table class="table table-borderless">
-            <thead>
-              <tr><th>ジャンル</th></tr>
-            </thead>
-            <tbody>
-              <% @genres.each do |genre| %>
-                <tr><td><%= genre.name %></td></tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </section>
