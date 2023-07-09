@@ -161,15 +161,6 @@
 }
 
 // homeページのレイアウト
-.home {
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  opacity: 1;
-  transform: translate3d(0px, 0px, 0px) rotate(0.0001deg);
-}
-
 .page-home_title {
   font-size: 30px;
 }
@@ -185,14 +176,18 @@
   margin-bottom: 55px;
 }
 
+.home-top-products {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
 .home-top-products-head {
   position: relative;
 }
 
 .home-top-products-title {
-  margin-bottom: 120px;
-  width: 72.05015%;
-  height: auto;
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -203,35 +198,59 @@
   transition: opacity 1000ms ease,transform 1000ms ease,border 0s ease 1205ms;
 }
 
+@media (min-width: 960px) {
+  .home-top-products-title {
+    margin-bottom: 120px;
+    width: 72.05015%;
+    height: auto;
+  }
+}
+
 .home-top-products-description {
-  position: absolute;
-  bottom: -40px;
-  padding: 0px 0px;
-  width: calc(100vw - 280px);
+  position: relative;
+  overflow: hidden;
   z-index: 1;
   left: 0px;
   border-left: 0px;
   box-sizing: border-box;
+  border-top: 1px solid #000;
+}
+
+@media (min-width: 960px) {
+  .home-top-products-description {
+    position: absolute;
+    bottom: -40px;
+    padding: 0px 0px;
+    width: calc(100vw - 280px);
+  }
 }
 
 .home-top-products-description-border {
   display: block;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   right: 0px;
   width: 100%;
   height: 100%;
   border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
   box-sizing: border-box;
   transition: height 1000ms ease;
 }
 
 .home-top-products-description-border p {
-  padding: 60px 64px;
-  width: 28vw;
-  width: 27.94985vw;
   box-sizing: border-box;
   line-height: 22px;
+}
+
+@media (min-width: 960px) {
+  .home-top-products-description-border p {
+    z-index: 1;
+    padding: 60px 64px;
+    width: 28vw;
+    width: 27.94985vw;
+  }
 }
 
 .home-top-link-button {
@@ -243,4 +262,10 @@
   text-align: center;
   text-decoration: none;
   transition: background-color 500ms ease, color 500ms ease;
+}
+
+.home-top-products-item {
+  font-size: 35px;
+  margin-top: 55px;
+  margin-bottom: 55px;
 }
