@@ -9,7 +9,6 @@ class Customer < ApplicationRecord
 
 
   has_many :items
-  has_many :addresses
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -20,5 +19,13 @@ class Customer < ApplicationRecord
 
   def password_reset_expired?
       reset_sent_at < 2.hours.ago
+  end
+
+   def get_post_image(width, height)
+    unless post_image.attached?
+      file_path = Rails.root.join('./app/assets/images/noimage.jpg')
+      post_image.attach(io: File.open(file_path), filename: 'noimage.jpg', content_type: 'image/jpeg')
+    end
+    post_image.variant(resize_to_limit: [width, height]).processed
   end
 end
