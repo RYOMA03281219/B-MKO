@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :name, presence: true
   validates :introducton, presence: true
+  validates :review, presence: true
+  validates :favorite, presence: true
 
   belongs_to :genre
   belongs_to :customer
