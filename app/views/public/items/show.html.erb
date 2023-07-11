@@ -2,12 +2,12 @@
   <h2>投稿商品詳細</h2>
   <div class="row">
     <div class="col-md-3 mt-3 mb-5">
-      <%= render 'customers/current_user' %>
+      <%= render 'public/customers/currentuser', customer: @customer %>
     </div>
 
     <span class="border">
       <div class="col-md-3">
-        <%= image_tag @item.get_image(200,200)%>
+        <%= image_tag @item.post_image(200,200) %>
       </div>
 
       <div class="col-md-6">
@@ -16,7 +16,7 @@
             <th>投稿者名</th>
             <td><%= @item.customer_name %></td>
           </tr>
-          
+
           <tr>
             <th>投稿商品名</th>
             <td><%= @item.name %></td>
@@ -24,27 +24,28 @@
 
           <tr>
             <th>商品ジャンル</th>
-            <td><%= @item. %></td>
+            <td><%= @item.genre %></td>
           </tr>
-          
+
           <tr>
             <th>商品説明</th>
-            <td><%= @genre.name %></td>
+            <td><%= @genre.introduction %></td>
           </tr>
-          
+
           <tr>
             <th>商品レビュー</th>
-            <td><%= @genre.name %></td>
+            <td><%= @item.review %></td>
           </tr>
-          
+
           <tr>
             <th>評価</th>
-            <td><%#= @genre.name %></td>
+            <td><%= render "star", item: @item %></td>
           </tr>
         </table>
-        
-        <div class="form-group">
-          <%= f.submit "編集", class: 'btn btn-outline-secondary btn-block' %>
+
+        <div id = "item-action-btn">
+          <%= link_to "編集する", edit_item_path(@item), class: 'btn btn-outline-secondary btn-block' %>
+          <%= link_to "削除", items_path(@item), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn btn-outline-danger btn-block' %>
         </div>
       </div>
     </span>
@@ -52,5 +53,43 @@
 
     <!--コメント機能の追加-->
     <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-    
+
+</div>
+  <div>
+  <% if @post_image.user == current_user %>
+    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+  <% end %>
+  <% if @post_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+        ♥<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+        ♡<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  </div>
+
+
+<div>
+  <p>コメント件数：<%= @post_image.post_comments.count %></p>
+  <% @post_image.post_comments.each do |post_comment|%>
+    <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+      <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@post_image, @post_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
 </div>
