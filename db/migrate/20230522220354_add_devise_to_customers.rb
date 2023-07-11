@@ -38,6 +38,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration[6.1]
       # t.timestamps null: false
       t.string :name, null: false
       t.boolean :is_delete, default: false
+      t.string :introduction
       t.timestamps null: false
     end
 
