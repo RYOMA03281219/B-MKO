@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     patch '/customers/information' => 'customers#update'
     get '/customers/cancellation' => 'customers#cancellation'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
     resources :password_resets, only: [:new, :create, :edit, :update]
     resources :post_images, only: [:new, :create, :index, :show, :destroy] do
       resource :favorites, only: [:create, :destroy]
