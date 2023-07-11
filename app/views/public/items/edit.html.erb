@@ -2,53 +2,56 @@
   <h2>投稿商品編集</h2>
   <div class="row">
     <div class="col-md-3 mt-3 mb-5">
-      <%= render 'customers/current_user' %>
+      <%= render 'public/customers/currentuser', customer: @customer %>
     </div>
-    
-    <div class="col-md-3 mt-3 mb-5">
+
       <%= form_with model: @item, url: item_path, method: :patch do |f| %>
         <span class="border">
           <div class="col-md-3">
-            <%= image_tag @item.get_image(200,200)%>
+            <%= f.file_field :post_image, accept: "image/*",class: "form-control-file" %>
           </div>
-    
+
           <div class="col-md-6">
             <table class="table table-hover">
               <tr>
-                <th>投稿者名</th>
+                <th><%= f.label :投稿者名 %></th>
                 <td><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "投稿者名", type: "name" %></td>
               </tr>
-              
+
               <tr>
-                <th>投稿商品名</th>
-                <td><%= f.text_field :item_name, class: "form-control", placeholder: "投稿商品名", type: "name" %></td>
+                <th><%= f.label :投稿商品名 %></th>
+                <td><%= f.text_field :item_name, autofocus: true, class: "form-control", placeholder: "投稿商品名", type: "item_name" %></td>
               </tr>
-    
+
               <tr>
-                <th>商品ジャンル</th>
-                <td><%= @item. %></td>
+                <th><%= f.label :商品ジャンル %></th>
+                <td><%= f.collection_select :genre_id, Genre.all, :id, :name, autofocus: true, class: "form-control", placeholder: "商品ジャンル", type: "genre_name" %></td>
               </tr>
-              
+
               <tr>
-                <th>商品説明</th>
-                <td><%= @genre.name %></td>
+                <th><%= f.label :商品説明 %></th>
+                <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品説明", type: "introduction" %></td>
               </tr>
-              
+
               <tr>
-                <th>商品レビュー</th>
-                <td><%= @genre.name %></td>
+                <th><%= f.label :商品レビュー %></th>
+                <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
               </tr>
-              
+
               <tr>
-                <th>評価</th>
+                <th><%= f.label :評価 %></th>
                 <td><%#= @genre.name %></td>
               </tr>
+              
+              
             </table>
-          </span>
+          </div>
+        </span>
 
         <div id="item-action-btn">
-          <%= f.submit "変更", class: "btn btn-default btn-lg btn-info" %>
+          <%= f.submit "変更", class: 'btn btn-outline-secondary btn-block' %>
         </div>
+
       <% end %>
     </div>
   </div>
