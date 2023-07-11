@@ -1,16 +1,21 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
+    @items = @customer.items
+    @item = Item.new
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
+    if current_customer != @customer
+      redirect_to customers_my_page_path(current_user.id)
+    end
   end
 
   def update
     @customer = current_customer
     if @customer.update!(customer_params)
-      redirect_to customers_path
+      redirect_to customers_path(@customer.id)
     else
       render "edit"
     end
@@ -29,7 +34,16 @@ class Public::CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
-    params.require(:customer).permit(:email, :last_name, :first_name, :postal_code, :address, :telephone_number, :star)
+    params.require(:customer).permit(:email, :name, :introduction, :star)
+  end
+
+  def ensure_currect_user
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      flash[:notice] = "権限がありません"
+      redirect_to customers_my_page_path(current_customer)
+    end
   end
 end
