@@ -59,9 +59,9 @@
           <span class="large">NEW POSTS</span>
         </h2>
       </div>
-      <ul class="home-top-products-item">
-        <li class="home-top-products-item-list">
-          <% @recommend_items.each do |item| %>
+      <div class="home-top-products-item">
+        <% @recommend_items.each do |item| %>
+          <div class="home-top-products-item-list">
             <div class="home-top-products-item-img">
               <%= link_to item_path(item) do %>
                 <p><%= image_tag item.get_image %></p>
@@ -69,9 +69,9 @@
               <p><%= item.name %></p>
               <p><%= item.genre %></p>
             </div>
-          <% end %>
-        </li>
-      </ul>
+          </div>
+        <% end %>
+      </div>
     </section>
   </div>
 </section>
