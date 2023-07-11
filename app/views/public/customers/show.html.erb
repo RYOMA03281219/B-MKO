@@ -22,9 +22,9 @@
                 <%= item.id %>
               </td>
               <td>
-                <%= link_to customers_information_edi_path(item.customer.id) do %>
-                  <%= image_tag item.customer.get_profile_image(80,80) %>
-                <% end %>
+                <%#= link_to edit_item_path(item.id) do %>
+                  <%#= image_tag item.customer.get_post_image(80,80) %>
+                <%# end %>
                 <%= item.name %>
               </td>
               <td><%= @customer.name %></td>
