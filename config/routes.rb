@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'password_resets/new'
-    get 'password_resets/edit'
-  end
+  # namespace :public do
+  #   get 'password_resets/new'
+  #   get 'password_resets/edit'
+  # end
 # 管理者用
 # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -28,10 +28,16 @@ Rails.application.routes.draw do
   scope module: :public do
     root 'homes#top'
     get '/homes/about' => 'homes#about'
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/information/edit' => 'customers#edit'
+    patch '/customers/information' => 'customers#update'
     get '/customers/cancellation' => 'customers#cancellation'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-    resources :customer, only:[:show, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :password_resets, only: [:new, :create, :edit, :update]
+    resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+    end
   end
 end
