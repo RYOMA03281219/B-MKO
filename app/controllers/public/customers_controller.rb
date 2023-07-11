@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:email, :name, :introduction, :star)
+    params.require(:customer).permit(:email, :name, :introduction, :post_image)
   end
 
   def ensure_currect_user
