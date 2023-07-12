@@ -64,10 +64,10 @@
           <div class="home-top-products-item-list">
             <div class="home-top-products-item-img">
               <%= link_to item_path(item) do %>
-                <p><%= image_tag item.get_image %></p>
+                <p><%= image_tag item.get_image(200, 200) %></p>
               <% end %>
               <p><%= item.name %></p>
-              <p><%= item.genre %></p>
+              <p><%= item.genre.name %></p>
             </div>
           </div>
         <% end %>
