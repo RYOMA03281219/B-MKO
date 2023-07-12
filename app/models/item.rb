@@ -1,13 +1,12 @@
 class Item < ApplicationRecord
   validates :image, presence: true
   validates :name, presence: true
-  validates :introducton, presence: true
+  validates :introduction, presence: true
   validates :review, presence: true
-  validates :favorite, presence: true
+  # validates :favorite, presence: true
 
   belongs_to :genre
   belongs_to :customer
-  has_many :order_details
 
   has_one_attached :image
 
