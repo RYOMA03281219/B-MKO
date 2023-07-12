@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 shadow p-3 mb-5 bg-body rounded px-0 my-5">
+    <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
       <h2 class="text-center">新規商品投稿</h2>
       <%= form_with model: @item, url: items_path, method: :post do |f| %>
         <table class="table table-borderless">
@@ -11,7 +11,7 @@
 
           <tr>
             <th><%= f.label :商品名 %></th>
-            <td><%= f.text.field :name, autofocus: true, id: "item_name", class: "form-control" %></td>
+            <td><%= f.text_field :name, autofocus: true, id: "item_name", class: "form-control" %></td>
           </tr>
 
           <tr>
@@ -26,7 +26,7 @@
 
           <tr>
             <th><%= f.label :商品レビュー %></th>
-            <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
+            <td><%= f.text_area :review, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
           </tr>
 
           <tr>
