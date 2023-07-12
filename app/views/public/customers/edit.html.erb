@@ -1,35 +1,40 @@
 <div class="container">
   <div class="row">
-    <h2><%= @customer.name %>さんの登録情報編集</h2>
-    <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
-      <div class="form-group">
-        <label for="user_image">Image</label>
-        <%= f.file_field :profile_image, accept: "image/*",class: "form-control-file" %>
-      </div>
+    <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
+      <h2 class="text-center mb-2"><%= @customer.name %>さんの登録情報編集</h2>
+      <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
+        <table class="table table-borderless">
 
-      <div class="form-group">
-        <label for="customer_name">Name</label>
-        <%= f.text_field :name, autofocus: true, id:"user_name", class: "form-control" %>
-      </div>
+          <tr>
+            <th><%= f.label :Image %></th>
+            <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+          </tr>
 
-      <div class="form-group">
-        <label for="user_Introduction">Introduction</label>
-        <%= f.text_area :introduction, class: "form-control" %>
-      </div>
+          <tr>
+            <th><%= f.label :CustomerName %></th>
+            <td><%= f.text_field :Customername, autofocus: true, id: "Customer_name", placeholder: "Name", class: "form-control" %></td>
+          </tr>
 
-      <div class="form-group">
-        <%= f.submit "Update User", class: "btn btn-outline-secondary btn-block" %>
-      </div>
+          <tr>
+            <th><%= f.label :Introduction %></th>
+            <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "説明文", type: "introduction" %></td>
+          </tr>
+        </table>
 
-      <div id="item-action-btn">
-        <%= f.submit "退会", customers_cancellation_path, class: "btn btn-sm btn-danger" %>
-      </div>
+        <div class="form-group">
+          <%= f.submit "Update User", class: "btn btn-outline-secondary btn-block" %>
+        </div>
 
-      <div class="error">
-        <% if @customer.errors.any? %>
-          <%= @customer.errors.count %>prohibited this product from being saved:
-        <% end %>
-      </div>
-    <% end %>
+        <div id="item-action-btn">
+          <%= link_to "退会", customers_cancellation_path, class: "btn btn-outline-danger btn-block" %>
+        </div>
+
+        <div class="error">
+          <% if @customer.errors.any? %>
+            <%= @customer.errors.count %>prohibited this product from being saved:
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
