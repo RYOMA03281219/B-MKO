@@ -214,6 +214,7 @@
   border-left: 0px;
   box-sizing: border-box;
   border-top: 1px solid #000;
+  max-width: 960px;
 }
 
 @media (min-width: 960px) {
@@ -237,6 +238,7 @@
   border-bottom: 1px solid #000;
   box-sizing: border-box;
   transition: height 1000ms ease;
+  max-width: 960px;
 }
 
 .home-top-products-description-border p {
@@ -250,6 +252,7 @@
     padding: 60px 64px;
     width: 28vw;
     width: 27.94985vw;
+    max-width: 360px;
   }
 }
 

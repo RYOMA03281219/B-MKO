@@ -9,8 +9,9 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.customer_id = current_customer.id
     if @item.save!
-      redirect_to item_path(@item_id)
+      redirect_to item_path(@item.id)
     else
       render "new"
     end
@@ -19,6 +20,7 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @genre = @item.genre
+    @customer = current_customer
   end
 
   def edit

@@ -7,14 +7,14 @@
 
     <span class="border">
       <div class="col-md-3">
-        <%= image_tag @item.post_image(200,200) %>
+        <%= image_tag @item.get_image(200,200) %>
       </div>
 
       <div class="col-md-6">
         <table class="table table-hover">
           <tr>
             <th>投稿者名</th>
-            <td><%= @item.customer_name %></td>
+            <td><%= @item.customer.name %></td>
           </tr>
 
           <tr>
