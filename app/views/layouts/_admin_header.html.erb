@@ -7,8 +7,8 @@
 
   <div id="sp-menu">
     <h2>B-MKO</h2>
-    <tr>
-      <div class="nav-item">
+    <ul>
+      <li class="nav-item">
         <button type="button" class="btn btn-black">
           <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -17,9 +17,9 @@
           顧客一覧
           <% end %>
         </button>
-      </div>
+      </li>
 
-      <div class="nav-item">
+      <li class="nav-item">
         <button type="button" class="btn btn-black">
           <%= link_to admin_genres_path, class: 'nav-link text-dark' do %>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
@@ -29,9 +29,9 @@
           ジャンル一覧
           <% end %>
         </button>
-      </div>
+      </li>
 
-      <div class="nav-item">
+      <li class="nav-item">
         <button type="button" class="btn btn-black">
           <%= link_to admin_items_path, class: 'nav-link text-dark' do %>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-2" viewBox="0 0 16 16">
@@ -40,9 +40,9 @@
           投稿一覧画面
           <% end %>
         </buton>
-      </div>
+      </li>
 
-      <div class="nav-item">
+      <li class="nav-item">
         <button type="button" class="btn btn-black">
           <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-danger' do %>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
@@ -51,12 +51,12 @@
           ログアウト
           <% end %>
         </button>
-      </div>
+      </li>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-    </tr>
+    </ul>
   </div>
 
   <div id="hm-icon">
