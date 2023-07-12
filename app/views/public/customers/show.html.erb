@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5 mt-3">
+    <div class="col-md-4 mt-3 mb-5">
       <%= render 'public/customers/currentuser', customer: @customer %>
     </div>
 
-    <div class="col-md-9 mt-3 mb-5">
+    <div class="col-md-8 mt-3 mb-5">
       <h2><%= @customer.name %>さんの投稿一覧</h2>
       <table class="table table-hover table-inverse">
         <thead>
@@ -16,27 +16,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <% @items.each do |item| %>
+          <% @items.each do |item| %>
+            <tr>
               <td>
                 <%= item.id %>
               </td>
               <td>
-                <%#= link_to edit_item_path(item.id) do %>
-                  <%#= image_tag item.customer.get_post_image(80,80) %>
-                <%# end %>
+                <%= link_to edit_item_path(item.id) do %>
+                  <%= image_tag item.get_image(80,80) %>
+                <% end %>
                 <%= item.name %>
               </td>
               <td><%= @customer.name %></td>
               <td>
-                <%= form_with model: @customer, url: customers_information_edit_path do |f| %>
-                  <div class="form-group">
-                    <%= f.submit "投稿詳細", class: "btn btn-outline-secondary btn-block" %>
-                  </div>
-                <% end %>
+                <div id="item-action-btn">
+                  <%= link_to "投稿詳細", item_path(@items), class: "btn btn-outline-secondary btn-block" %>
+                </div>
               </td>
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
