@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
+    @customer = current_customer
     @items = Item.all.page(params[:page]).per(10)
   end
 

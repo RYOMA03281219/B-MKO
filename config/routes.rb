@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :foos
   # namespace :public do
   #   get 'password_resets/new'
   #   get 'password_resets/edit'
