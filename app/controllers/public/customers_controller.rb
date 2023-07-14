@@ -15,7 +15,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update!(customer_params)
-      redirect_to customers_path(@customer.id)
+      redirect_to customers_my_page_path(@customer.id)
     else
       render "edit"
     end
@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:email, :name, :introduction, :post_image)
+    params.require(:customer).permit(:email, :name, :introduction, :profile_image)
   end
 
   def ensure_currect_user
