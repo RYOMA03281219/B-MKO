@@ -9,13 +9,8 @@ class Customer < ApplicationRecord
 
 
   has_many :items
-  has_many :profile_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
-  # def active_for_authentication?
-  #   super && (is_delete == false)
-  #
 
   has_one_attached :profile_image
 
@@ -23,7 +18,7 @@ class Customer < ApplicationRecord
       reset_sent_at < 2.hours.ago
   end
 
-  def profile_image(width, height)
+  def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('./app/assets/images/noimage.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'noimage.jpg', content_type: 'image/jpeg')
