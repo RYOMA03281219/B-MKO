@@ -2,7 +2,7 @@
   <h2>投稿商品一覧</h2>
   <div class="row">
     <div class="col-md-3 mt-3 mb-5">
-      <%= render 'public/customers/currentuser' %>
+      <%= render 'public/customers/currentuser', customer: @customer %>
     </div>
 
     <div class="col-md-9 mt-3 mb-5">
@@ -13,6 +13,7 @@
             <th>投稿名</th>
             <th>投稿者名</th>
             <th>商品ジャンル</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -20,8 +21,13 @@
             <tr>
               <td><%= item.id %></td>
               <td><%= image_tag item.get_image(50,50) %><%= link_to item.name, item_path(item.id) %></td>
-              <td><%= item.customer_name %></td>
-              <td><%= item.genre_id %></td>
+              <td><%= item.customer.name %></td>
+              <td><%= item.genre.id %></td>
+              <td>
+                <div class="form-group">
+                  <%= render "star-show", item: @item %>
+                </div>
+              </td>
             </tr>
           <% end %>
         </tbody>
