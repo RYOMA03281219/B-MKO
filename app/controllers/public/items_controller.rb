@@ -22,10 +22,12 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @genre = @item.genre
     @customer = current_customer
+    @post_comment = PostComment.new
   end
 
   def edit
     @item = Item.find(params[:id])
+    @customer = current_customer
   end
 
   def update
