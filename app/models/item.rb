@@ -3,12 +3,13 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :review, presence: true
-  validates :star
+  # validates :star
   # validates :favorite, presence: true
 
   belongs_to :genre
   belongs_to :customer
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
