@@ -1,61 +1,56 @@
 <div class="container">
   <h2>投稿商品編集</h2>
   <div class="row">
-    <div class="col-md-3 mt-3 mb-5">
+    <div class="col-md-3 mb-5">
       <%= render 'public/customers/currentuser', customer: @customer %>
     </div>
 
+    <div class="col-md-9 mb-5 border border-dark">
       <%= form_with model: @item, url: item_path, method: :patch do |f| %>
-        <span class="border">
-          <div class="col-md-3">
-            <%= f.file_field :post_image, accept: "image/*",class: "form-control-file" %>
-          </div>
+        <div class="text-center mt-3 mb-3">
+          <%= f.file_field :get_image, accept: "image/*",class: "form-control-file" %>
+        </div>
 
-          <div class="col-md-6">
-            <table class="table table-hover">
-              <tr>
-                <th><%= f.label :投稿者名 %></th>
-                <td><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "投稿者名", type: "name" %></td>
-              </tr>
+        <div class="mt-3">
+          <table class="table table-hover">
+            <tr>
+              <th><%= f.label :投稿者名 %></th>
+              <td><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "投稿者名", type: "name" %></td>
+            </tr>
 
-              <tr>
-                <th><%= f.label :投稿商品名 %></th>
-                <td><%= f.text_field :item_name, autofocus: true, class: "form-control", placeholder: "投稿商品名", type: "item_name" %></td>
-              </tr>
+            <tr>
+              <th><%= f.label :投稿商品名 %></th>
+              <td><%= f.text_field :item_name, autofocus: true, class: "form-control", placeholder: "投稿商品名", type: "item_name" %></td>
+            </tr>
 
-              <tr>
-                <th><%= f.label :商品ジャンル %></th>
-                <td><%= f.collection_select :genre_id, Genre.all, :id, :name, autofocus: true, class: "form-control", placeholder: "商品ジャンル", type: "genre_name" %></td>
-              </tr>
+            <tr>
+              <th><%= f.label :商品ジャンル %></th>
+              <td><%= f.collection_select :genre_id, Genre.all, :id, :name, autofocus: true, class: "btn btn-outline-secondary btn-block", placeholder: "商品ジャンル", type: "genre_name" %></td>
+            </tr>
 
-              <tr>
-                <th><%= f.label :商品説明 %></th>
-                <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品説明", type: "introduction" %></td>
-              </tr>
+            <tr>
+              <th><%= f.label :商品説明 %></th>
+              <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品説明", type: "introduction" %></td>
+            </tr>
 
-              <tr>
-                <th><%= f.label :商品レビュー %></th>
-                <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
-              </tr>
+            <tr>
+              <th><%= f.label :商品レビュー %></th>
+              <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
+            </tr>
 
-              <tr>
-                <th><%= f.label :評価 %></th>
-                <td>
-                  <div class="form-group">
-                    <%= render "static_rate", item: @item %>
-                  </div>
-                </td>
-              </tr>
-
-
-            </table>
-          </div>
-        </span>
-
+            <tr>
+              <th><%= f.label :評価 %></th>
+              <td>
+                <div class="form-group">
+                  <%= render "public/items/star-show", item: @item, f: f %>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div id="item-action-btn">
           <%= f.submit "変更", class: 'btn btn-outline-secondary btn-block' %>
         </div>
-
       <% end %>
     </div>
   </div>
