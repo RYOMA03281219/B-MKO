@@ -2,7 +2,7 @@
   <div class="row">
     <span class="border border-secondary">
       <h2 class="text-center">User Info</h2>
-      <div><%= image_tag customer.get_profile_image(200,200) %></div>
+      <div class="mb-2 text-center"><%= image_tag customer.get_profile_image(200,200) %></div>
       <table class="table">
         <tbody>
           <tr>
@@ -13,11 +13,6 @@
           <tr>
             <th>introduction</th>
             <th><%= customer.introduction %></th>
-          </tr>
-
-          <tr>
-            <th>いいね一覧</th>
-            <th><%#= customer.favorite %></th>
           </tr>
         </tbody>
       </table>
