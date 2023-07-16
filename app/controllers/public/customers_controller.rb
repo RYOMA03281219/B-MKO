@@ -1,6 +1,11 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = current_customer
+    @customer = if params[:id].present?
+      Customer.find(params[:id])
+    else
+      current_customer
+    end
+    @customers = Customer.all
     @items = @customer.items
     @item = Item.new
   end
