@@ -1,19 +1,24 @@
 <div id="star_<%= item.id %>"></div>
 
 <script>
-  $(document).on('turbolinks:load', function() {
-    let elem = document.querySelector('#star_<%= item.id %>');
-    if (elem == null) return;
+  // let elem = document.querySelector('#star_<%= item.id %>');
 
-    elem.innerHTML = ""
-    let opt = {
-      score: "<%= item.star %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      scoreName: 'item[star]',
-      readOnly: true
-    };
-    raty(elem, opt);
+  // elem.innerHTML = ""
+  // let opt = {
+  //   score: <%= item.star ||= 0 %>,
+  //   starOn: "<%= asset_path('star-on.png') %>",
+  //   starOff: "<%= asset_path('star-off.png') %>",
+  //   starHalf: "<%= asset_path('star-half.png') %>",
+  //   scoreName: 'item[star]',
+  //   readOnly: true
+  // };
+  document.querySelector('#star_<%= item.id %>').innerHTML = ''
+  raty(document.querySelector('#star_<%= item.id %>'), {
+    score: <%= item.star ||= 0 %>,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'item[star]',
+    readOnly: true
   });
 </script>
