@@ -1,15 +1,15 @@
 class Public::PostCommentsController < ApplicationController
   def create
-    get_image = PostImage.find(params[:get_image_id])
-    comment = current_customer.post_comments.new(post_comment_params)
-    comment.get_image_id = get_image.id
+    @item = item.find(params[:item_id])
+    @comment = current_customer.post_comments.new(post_comment_params)
+    @comment.item_id = item.id
     comment.save
-    redirect_to get_image_path(get_image)
+    redirect_to item_path(item)
   end
 
   def destroy
-    PostComment.find(params[:id]).destroy
-    redirect_to get_image_path(params[:get_image_id])
+    @PostComment.find(params[:id]).destroy
+    redirect_to item_path(params[:item_id])
   end
 
   private
