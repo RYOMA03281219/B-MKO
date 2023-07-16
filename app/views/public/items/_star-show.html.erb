@@ -1,20 +1,25 @@
-
 <div class="form-group" id="star">
   <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
   <div id="post_raty"></div>
 </div>
 <script>
-  $(document).on('turbolinks:load', function() {
-    let elem = document.querySelector('#post_raty');
-    if (elem == null) return;
+  // $(document).on('turbolinks:load', function() {
+    // let elem = document.querySelector('#post_raty');
+    // if (elem == null) return;
 
-    elem.innerHTML = ""
-    let opt = {
+    document.querySelector('#post_raty').innerHTML = ""
+    // let opt = {
+    //   starOn: "<%= asset_path('star-on.png') %>",
+    //   starOff: "<%= asset_path('star-off.png') %>",
+    //   starHalf: "<%= asset_path('star-half.png') %>",
+    //   scoreName: 'item[star]',
+    // };
+    raty( document.querySelector('#post_raty'), opt = {
+      score: <%= @item.star ||= 0 %>,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
       scoreName: 'item[star]',
-    };
-    raty(elem, opt);
-  });
+    });
+  // });
 </script>
