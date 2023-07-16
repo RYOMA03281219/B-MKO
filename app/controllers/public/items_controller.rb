@@ -41,13 +41,13 @@ class Public::ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to items_path
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :genre_id, :review, :favorite, :image, :star)
+    params.require(:item).permit(:name, :introduction, :genre_id, :review, :favorite, :image, :star, :post_comment)
   end
 end
