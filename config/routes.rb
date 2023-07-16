@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :foos
   # namespace :public do
   #   get 'password_resets/new'
   #   get 'password_resets/edit'
@@ -30,10 +29,15 @@ Rails.application.routes.draw do
     root 'homes#top'
     get '/homes/about' => 'homes#about'
     get '/customers/my_page' => 'customers#show'
+    resources :customers, only: [:show]
     get '/customers/information/edit' => 'customers#edit'
     patch '/customers/information' => 'customers#update'
     get '/customers/cancellation' => 'customers#cancellation'
     patch '/customers/withdrawal' => 'customers#withdrawal'
+    resource :relationships, only: [:create, :destroy] do
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy] do
       resources :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]

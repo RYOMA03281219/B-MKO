@@ -1,14 +1,14 @@
 class Public::PostCommentsController < ApplicationController
   def create
-    @item = item.find(params[:item_id])
+    # @item = Item.find(params[:item_id])
     @comment = current_customer.post_comments.new(post_comment_params)
-    @comment.item_id = item.id
-    comment.save
-    redirect_to item_path(item)
+    @comment.item_id = params[:item_id]
+    @comment.save
+    redirect_to item_path(params[:item_id])
   end
 
   def destroy
-    @PostComment.find(params[:id]).destroy
+    PostComment.find(params[:id]).destroy
     redirect_to item_path(params[:item_id])
   end
 

@@ -273,4 +273,11 @@
   margin-bottom: 55px;
 }
 
-// public/customerレイアウト
+// ログインと新規登録画面のエラーメッセージの登録
+.error-message {
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000 ;
+  padding:12px; font-weight:850;
+}
