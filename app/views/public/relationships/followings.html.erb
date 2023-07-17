@@ -1,29 +1,35 @@
-<h2>Follows</h2>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>name</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user) do %>
-              <%= image_tag customer.get_profile_image(50,50) %>
-            <% end %>
-          </td>
-          <td><%= customer.name %></td>
-          <td>
-            <h6>フォロー<%= customer.followings.count %></h6>
-          </td>
-          <td>
-            <h6>フォロワー<%= customer.followers.count %></h6>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
+      <h2>Follows</h2>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>name</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= link_to user_path(user) do %>
+                  <%= image_tag customer.get_profile_image(50,50) %>
+                <% end %>
+              </td>
+              <td><%= customer.name %></td>
+              <td>
+                <h6>フォロー<%= customer.followings.count %></h6>
+              </td>
+              <td>
+                <h6>フォロワー<%= customer.followers.count %></h6>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
