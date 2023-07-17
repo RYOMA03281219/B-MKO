@@ -1,29 +1,35 @@
-<h2>Followers</h2>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td>
-          <%= link_to customer_path(customer) do %>
-            <%= image_tag customer.get_profile_image(50,50) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
+      <h2>Followers</h2>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>name</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= link_to customer_path(customer) do %>
+                  <%= image_tag customer.get_profile_image(50,50) %>
+                <% end %>
+              </td>
+              <td><%= customer.name %></td>
+              <td>
+                <p>フォロー<%= customer.followings.count %></p>
+              </td>
+              <td>
+                <p>フォロワー<%= customer.followers.count %></p>
+              </td>
+            </tr>
           <% end %>
-        </td>
-        <td><%= customer.name %></td>
-        <td>
-          <p>フォロー<%= customer.followings.count %></p>
-        </td>
-        <td>
-          <p>フォロワー<%= customer.followers.count %></p>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
