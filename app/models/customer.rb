@@ -43,4 +43,5 @@ class Customer < ApplicationRecord
     followings.exists?(id: customer.id)
   end
 
+
 end

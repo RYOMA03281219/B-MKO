@@ -43,24 +43,33 @@
           </tr>
         </table>
 
-      <div>
-        <% if @item.favorites.exists?(customer_id: current_customer.id) %>
-          <p style="font-size: 2rem;">
-            <%= link_to item_favorite_path(@item), style: 'color: red;', method: :delete do %>
-              ♥<%= @item.favorites.count %>
+
+        <div>
+          <% if customer_signed_in? %>
+            <% if @item.favorites.exists?(customer_id: current_customer.id) %>
+              <p style="font-size: 2rem;">
+                <%= link_to item_favorite_path(@item), style: 'color: red;', method: :delete do %>
+                  ♥<%= @item.favorites.count %>
+                <% end %>
+              </p>
+              <% else %>
+              <p style="font-size: 2rem;">
+                <%= link_to item_favorites_path(@item), style: 'color: gray;', method: :post do %>
+                  ♡<%= @item.favorites.count %>
+                <% end %>
+              </p>
             <% end %>
-          </p>
           <% else %>
-          <p style="font-size: 2rem;">
-            <%= link_to item_favorites_path(@item), style: 'color: gray;', method: :post do %>
+            <p style="font-size: 2rem;">
               ♡<%= @item.favorites.count %>
-            <% end %>
-          </p>
-        <% end %>
-      </div>
+            </p>
+          <% end %>
+        </div>
 
         <div id = "item-action-btn">
-          <%= link_to "編集する", edit_item_path(@item), class: 'btn btn-outline-secondary btn-block' %>
+          <% if @item.customer == current_customer %>
+            <%= link_to "編集する", edit_item_path(@item), class: 'btn btn-outline-secondary btn-block' %>
+          <% end %>
           <% if @item.customer == current_customer %>
             <%= link_to "削除", item_path(@item), method: :delete, "data-confirm" => "本当に消しますか？", class: 'btn btn-outline-danger btn-block' %>
           <% end %>
@@ -78,7 +87,6 @@
           <div class="mt-2 mb-2">
             <i class="fas fa-user" aria-hidden="true"></i>
             <%= post_comment.customer.name %>
-
             <small class="text-black-50">
               <i class="fa fa-calendar" aria-hidden="true"></i>
               <%= post_comment.created_at.strftime('%Y/%m/%d') %>

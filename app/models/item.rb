@@ -3,8 +3,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :review, presence: true
-  # validates :star
-  # validates :favorite, presence: true
 
   belongs_to :genre
   belongs_to :customer

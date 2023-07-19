@@ -44,11 +44,15 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:email, :name, :introduction, :profile_image)
   end
 
-  def ensure_currect_user
+  def ensure_currect_customer
     @customer = Customer.find(params[:id])
     unless @customer == current_customer
       flash[:notice] = "権限がありません"
       redirect_to customers_my_page_path(current_customer)
     end
+  end
+
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 end

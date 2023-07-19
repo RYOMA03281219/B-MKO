@@ -24,7 +24,6 @@
               <td><%= link_to item.customer.name, customer_path(item.customer.id) %></td>
               <td><%= item.genre.name %></td>
               <td><%= render "star", item: item %></td>
-              <td><%#= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></td>
             </tr>
           <% end %>
         </tbody>

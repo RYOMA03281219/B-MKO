@@ -1,29 +1,35 @@
 <div class="container">
-  <h2><%= @customer.last_name %><%= @customer.first_name %>さんのMember Edit</h2>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+      <h2 class="text-center mt-2 mb-4">登録情報編集</h2>
       <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
         <table class="table table-borderless">
           <tr>
-            <td>Member Id</td>
+            <td>会員ID</td>
             <td><%= @customer.id %></td>
           </tr>
 
           <tr>
-            <td>Member Name</td>
-            <td><%= f.text_field :last_name, class: 'btn-block' %></td>
-            <td><%= f.text_field :first_name, class: 'btn-block' %></td>
+            <td>会員名</td>
+            <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %></td>
           </tr>
 
           <tr>
-            <td>Email</td>
-            <td><%= f.text_field :email, class: 'btn-clock'%></td>
+            <td>Mail</td>
+            <td><%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
           </tr>
 
-          <div id = "item-action-btn">
-            <%= f.submit "Keep", class: "btn btn-default btn-lg btn-info" %>
-           </div>
+          <tr>
+            <td><%= f.label :会員ステータス %></td>
+            <td>
+              <%= f.radio_button :is_delete, true %><%= f.label :有効 %>
+              <%= f.radio_button :is_delete, false %><%= f.label :退会 %>
+            </td>
+          </tr>
         </table>
+        <div>
+          <%= f.submit "更新", class: "btn btn-outline-primary" %>
+         </div>
       <% end %>
     </div>
   </div>
