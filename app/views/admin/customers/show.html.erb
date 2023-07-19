@@ -1,41 +1,45 @@
 <div class="container">
-  <h2><%= @customer.last_name %><%= @customer.first_name %>さんのMember Details</h2>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <table class="table table-striped">
-        <tr>
-          <td>Member Id</td>
-          <td><%= @customer.id %></td>
-        </tr>
+    <div class="col-md-12 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+      <h2 class="text-center mt-2 mb-4">登録情報詳細</h2>
+      <div class="row">
+        <div class="col-md-5 text-center">
+          <%= image_tag @customer.get_profile_image(500,500), class: 'img-fluid' %>
+        </div>
 
-        <tr>
-          <td>Member Name</td>
-          <td><%= @customer.last_name %></td>
-          <td><%= @customer.first_name %></td>
-        </tr>
+        <div class="col-md-6 mb-4">
+          <table class="table boder-bottom">
+            <tr>
+              <td>会員ID</td>
+              <td><%= @customer.id %></td>
+            </tr>
 
-        <tr>
-          <td>Email</td>
-          <td><%= @custmer.email%></td>
-        </tr>
+            <tr>
+              <td>会員名</td>
+              <td><%= @customer.name %></td>
+            </tr>
 
-        <tr>
-          <td>Member Status</td>
-          <td>
-            <% if @customer.is_deleted %>
-              退会済み
-            <%= link_to "有効にする", admin_withdrawal_path(@customer.id), method: :patch, class: "btn btn-success" %>
-            <% else %>
-              有効
-            <%= link_to "退会させる", admin_withdrawal_path(@customer.id), method: :patch, class: "btn btn-danger" %>
-            <% end %>
-          </td>
-        </tr>
+            <tr>
+              <td>Mail</td>
+              <td><%= @customer.email %></td>
+            </tr>
 
-      </table>
+            <tr>
+              <td>会員ステータス</td>
+              <td>
+                <% if @customer.is_delete %>
+                  <span>有効</span>
+                <% else %>
+                  <span>退会</span>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
       <div class="item-action-btn">
-        <%= link_to "Edit", edit_admin_customer_path(@customer), class: "btn btn-default btn-lg btn-info" %>
-        <%= link_to "Home", admin_path, class: "btn btn-default btn-lg btn-info "%>
+        <%= link_to "編集画面へ", edit_admin_customer_path(@customer), class: "btn btn-outline-secondary" %>
+        <%= link_to "Home画面へ", admin_path, class: "btn btn-outline-primary "%>
       </div>
     </div>
   </div>
