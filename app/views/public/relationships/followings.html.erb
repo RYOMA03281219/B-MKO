@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
+    <div class="col-md-10 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
       <h2>Follows</h2>
       <table class='table'>
         <thead>
@@ -15,8 +15,8 @@
           <% @customers.each do |customer| %>
             <tr>
               <td>
-                <%= link_to user_path(user) do %>
-                  <%= image_tag customer.get_profile_image(50,50) %>
+                <%= link_to customer_path(customer) do %>
+                  <%= image_tag customer.get_profile_image(100,100) %>
                 <% end %>
               </td>
               <td><%= customer.name %></td>
