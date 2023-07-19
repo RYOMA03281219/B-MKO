@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <h2>会員一覧</h2>
-    <div class="col-md-12">
+    <div class="col-md-12 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+    <h2 class="text-center mb-4">会員一覧</h2>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
@@ -15,17 +15,13 @@
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.id %></td>
-              <td>
-                <% link_to admin_customer_path(cutomer.id) do %>
-                  <%= customer.last_name %><%= customer.first_name %>
-                <% end %>
-              </td>
+              <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
               <td><%= customer.email %></td>
               <td>
-                <% if customer.is_deleted %>
+                <% unless customer.is_delete %>
                   <p>有効</p>
                 <% else %>
-                  <p>退会</p>
+                  <p style= "color: red;">退会</p>
                 <% end %>
               </td>
             </tr>
