@@ -15,12 +15,12 @@
           <table class="table table-hover">
             <tr>
               <th><%= f.label :投稿者名 %></th>
-              <td><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "投稿者名", type: "name" %></td>
+              <td><%= @customer.name %></td>
             </tr>
 
             <tr>
               <th><%= f.label :投稿商品名 %></th>
-              <td><%= f.text_field :item_name, autofocus: true, class: "form-control", placeholder: "投稿商品名", type: "item_name" %></td>
+              <td><%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "投稿商品名", type: "item_name" %></td>
             </tr>
 
             <tr>
