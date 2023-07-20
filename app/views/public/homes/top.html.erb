@@ -59,16 +59,22 @@
           <span class="large">NEW POSTS</span>
         </h2>
       </div>
-      <div class="home-top-products-item">
-        <% @recommend_items.each do |item| %>
-          <div class="col-md-4">
-            <%= link_to item_path(item) do %>
-              <p><%= image_tag item.get_image(200,200) %></p>
+      <div class="container">
+        <div class="row home-top-products-item">
+            <% @recommend_items.each do |item| %>
+              <div class="col-md-4">
+                <%= link_to item_path(item) do %>
+                  <p class="text-center"><%= image_tag item.get_image(200,200), style: 'max-height: 130px' %></p>
+                <% end %>
+                <p style="font-size: 1rem;padding-left: 70px;">
+                  <%= item.name %>
+                </p>
+                <p style="font-size: 1rem;padding-left: 70px;">
+                  <%= item.genre.name %>
+                </p>
+              </div>
             <% end %>
-            <p><%= item.name %></p>
-            <p><%= item.genre.name %></p>
-          </div>
-        <% end %>
+        </div>
       </div>
     </section>
   </div>
