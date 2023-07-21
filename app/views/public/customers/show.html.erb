@@ -34,7 +34,7 @@
                 </div>
                 <div id="item-action-btn">
                   <% if item.customer == current_customer %>
-                    <%= link_to "削除", item_path(item), method: :delete, class: "btn btn-outline-danger btn-block" %>
+                    <%= link_to "削除", item_path(item), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger btn-block" %>
                   <% end %>
                 </div>
               </td>
