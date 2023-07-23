@@ -20,7 +20,7 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
-              <td><%= image_tag item.get_image(50,50) %><%= link_to item.name, item_path(item.id) %></td>
+              <td><%= image_tag item.get_image(100,100) %><%= link_to item.name, item_path(item.customer.id) %></td>
               <td><%= link_to item.customer.name, customer_path(item.customer.id) %></td>
               <td><%= item.genre.name %></td>
               <td><%= render "star", item: item %></td>
