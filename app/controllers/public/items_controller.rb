@@ -11,7 +11,7 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id
-    if @item.save!
+    if @item.save
       redirect_to item_path(@item.id)
     else
       render "new"
@@ -19,9 +19,9 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
+    @customer = current_customer
     @item = Item.find(params[:id])
     @genre = @item.genre
-    @customer = current_customer
     @post_comment = PostComment.new
   end
 
