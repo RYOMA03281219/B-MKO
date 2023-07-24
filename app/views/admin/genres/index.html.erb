@@ -3,36 +3,39 @@
     <div class="col-md-10 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
       <h2 class="text-center mt-2 mb-4">ジャンル一覧・追加</h2>
 
-      <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+      <div class="row">
         <div class="col-md-10 mb-5 text-center">
-          <table class="table table-borderless">
-            <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "追加したいジャンル名記入" %></td>
-            <td><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+          <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+            <table class="table table-borderless">
+              <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "追加したいジャンル名記入" %></td>
+              <td><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+            </table>
+          <% end %>
+        </div>
+
+        <div class="col-md-10 mb-4 text-center">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ジャンル一覧</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @genres.each do |genre| %>
+                <tr>
+                  <%= form_with model: genre, url: admin_genre_path(genre.id) do |f| %>
+                    <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %></td>
+                    <td><%= f.submit "更新", class: "btn btn-outline-primary" %></td>
+                  <% end %>
+                  <td><%= link_to "削除する", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger" %></td>
+                </tr>
+              <% end %>
+            </tbody>
           </table>
         </div>
-      <% end %>
-
-      <div class="col-md-10 mb-4 text-center">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>ジャンル一覧</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @genres.each do |genre| %>
-              <tr>
-                <%= form_with model: genre, url: admin_genre_path(genre.id) do |f| %>
-                  <td><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %></td>
-                  <td><%= f.submit "更新", class: "btn btn-outline-primary" %></td>
-                <% end %>
-                <td><%= link_to "削除する", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-outline-danger" %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <%= paginate @genres %>
       </div>
     </div>
   </div>
