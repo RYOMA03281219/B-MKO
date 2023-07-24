@@ -1,7 +1,7 @@
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2 mb-5">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+      <%= form_with model: @customer, url: customer_registration_path do |f| %>
         <h3 class="card-title text-center mb-4 mt-1">新規メンバー登録</h3>
         <%= render 'layouts/error_messages', model: f.object %>
         <hr>
