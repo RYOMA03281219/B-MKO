@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+    <div class="col-md-10 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
     <h2 class="text-center mb-4">会員一覧</h2>
       <table class="table table-hover table-inverse">
         <thead>
@@ -28,6 +28,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
