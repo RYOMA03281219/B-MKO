@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :update, :destroy]
     resources :items, only: [:index, :show, :edit, :update]
+    get "search" => "searches#search_result"
     get 'items/index'
   end
 
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root 'homes#top'
+    get "search" => "searches#search_result"
     get '/homes/about' => 'homes#about'
     get '/customers/my_page' => 'customers#show'
     get '/customers/information/edit' => 'customers#edit'
