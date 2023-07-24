@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+      <h2 class="text-center mt-2 mb-4">Results index</h2>
+
+      <table class="table table-hover table-inverse">
+        <% if @range == "Customer" %>
+        <h2>Customers search for "<%= @search_word %>"</h2>
+          <thead>
+            <tr>
+              <th></th>
+              <th>name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @customers.each do |customer| %>
+              <tr>
+                <td><%= image_tag customer.get_profile_image(100, 100), style: "max-height: 130px" %></td>
+                <td><%= customer.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        <% else %>
+          <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <h2>Items search for "<%= @search_word %>"</h2>
+            <% @items.each do |item| %>
+              <tr>
+                <td>
+                  <%= link_to customer_path(item.customer) do %>
+                    <%= image_tag item.get_image(100, 100), style: "max-height: 130px" %>
+                  <% end %>
+                </td>
+                <td><%= link_to item.name, item_path(item.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
