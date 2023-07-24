@@ -7,7 +7,7 @@
           <%= image_tag @item.get_image(500,500), class: 'img-fluid' %>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
           <table class="table border-bottom">
             <tr>
               <td>投稿商品名</td>
@@ -16,7 +16,7 @@
 
             <tr>
               <td>投稿者名</td>
-              <td><%= @item.customer.name %></td>
+              <td><%= link_to @item.customer.name, admin_customer_path(@item.customer.id) %></td>
             </tr>
 
             <tr>
