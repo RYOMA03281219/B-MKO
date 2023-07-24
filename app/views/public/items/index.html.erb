@@ -2,7 +2,11 @@
   <h2>投稿商品一覧</h2>
   <div class="row">
     <div class="col-md-3 mt-3 mb-5">
-      <%= render 'public/customers/currentuser', customer: @customer %>
+      <% if customer_signed_in? %>
+        <%= render 'public/customers/currentuser', customer: @customer %>
+      <% else %>
+        <p>※ログインしてください※</p>
+      <% end %>
     </div>
 
     <div class="col-md-9 mt-3 mb-5">
@@ -20,8 +24,21 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
-              <td><%= image_tag item.get_image(100,100) %><%= link_to item.name, item_path(item.customer.id) %></td>
-              <td><%= link_to item.customer.name, customer_path(item.customer.id) %></td>
+              <td>
+                <%= image_tag item.get_image(100,100), style: "max-height: 130px, max-width: 130px" %>
+                <% if customer_signed_in? %>
+                  <%= link_to item.name, item_path(item.customer.id) %>
+                <% else %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+              <td>
+                <% if customer_signed_in? %>
+                  <%= link_to item.customer.name, customer_path(item.customer.id) %>
+                <% else %>
+                  <%= item.customer.name %>
+                <% end %>
+              </td>
               <td><%= item.genre.name %></td>
               <td><%= render "star", item: item %></td>
             </tr>
