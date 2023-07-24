@@ -1,0 +1,10 @@
+<div class="search_form">
+  <div class="text-center">
+    <%= form_with url: search_path, local: true, method: :get do |f| %>
+      <%= f.text_field :search_word, class: "text-dark" %>
+      <%= f.select :range, 'Customer', 'Item', {}, class: "color-initial" %>
+      <%= f.submit "検索", class: "btn btn-outline-success" %>
+    <% end %>
+  </div>
+</div>
+
