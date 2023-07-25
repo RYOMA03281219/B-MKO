@@ -27,7 +27,7 @@
               <td>
                 <%= image_tag item.get_image(100,100), style: "max-height: 130px, max-width: 130px" %>
                 <% if customer_signed_in? %>
-                  <%= link_to item.name, item_path(item.customer.id) %>
+                  <%= link_to item.name, item_path(item.id) %>
                 <% else %>
                   <%= item.name %>
                 <% end %>
