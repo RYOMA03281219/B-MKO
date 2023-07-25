@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+    <div class="col-md-6 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
       <%= form_with model: @customer, url: customer_session_path do |f| %>
        <h2 class="card-title text-center mb-4 mt-1">ログイン</h2>
        <%= render 'layouts/error_messages', model: f.object %>
