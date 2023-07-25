@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7 mx-sm-auto shadow p-3 mb-5 bg-body rounded px-0 my-5 ">
-      <h2 class="text-center">新規商品投稿</h2>
+      <h2 class="text-center mb-4">新規商品投稿</h2>
+      <div class="text-center mb-2",  style= "color: red;"><%= alert %></div>
       <%= form_with model: @item, url: items_path, method: :post do |f| %>
         <table class="table table-borderless">
           <tr>
