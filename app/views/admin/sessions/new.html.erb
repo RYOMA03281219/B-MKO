@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
+    <div class="col-md-6 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
       <%= form_with model: @admin, url: new_admin_session_path do |f| %>
-       <h3 class="card-title text-center mb-4 mt-1">管理者ログイン</h3>
+        <h3 class="card-title text-center mb-4 mt-1">管理者ログイン</h3>
         <hr>
           <form>
             <div class="form-group">
@@ -29,7 +29,7 @@
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード（6文字以上）", type: "password" %>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3 mb-4">
               <%= f.submit "登録", class: "btn btn-outline-secondary btn-block" %>
             </div>
           </form>
