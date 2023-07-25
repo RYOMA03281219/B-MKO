@@ -14,6 +14,7 @@ class Public::ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item.id)
     else
+      flash[:alert] = "※画像ファイルの拡張子もしくは記入項目が空欄です。※"
       render "new"
     end
   end
@@ -42,7 +43,7 @@ class Public::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path
+    redirect_to customers_my_page_path
   end
 
   private
