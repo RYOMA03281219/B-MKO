@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
-      <h2 class="text-center mt-2 mb-4">登録情報詳細</h2>
+      <h2 class="text-center mt-2 mb-5">登録情報詳細</h2>
       <div class="row">
         <div class="col-md-5 text-center">
           <%= image_tag @customer.get_profile_image(500,500), class: 'img-fluid' %>
@@ -30,7 +30,7 @@
                 <% if @customer.is_delete %>
                   <span>有効</span>
                 <% else %>
-                  <span>退会</span>
+                  <span style= "color: red;">退会</span>
                 <% end %>
               </td>
             </tr>
