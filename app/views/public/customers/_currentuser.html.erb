@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <span class="border border-secondary">
-      <h2 class="text-center">User Info</h2>
+      <h2 class="text-center">Customer Info</h2>
       <div class="mb-2 text-center"><%= image_tag customer.get_profile_image(200,200) %></div>
       <table class="table">
         <tbody>
@@ -43,8 +43,9 @@
             <%= link_to "フォロー", relationships_path(customer_id: customer.id), method: :post %>
           <% end %>
         <% end %>
+      <% end %>
 
-
+      <% if customer == current_customer %>
         <div class="nav-item">
           <%= link_to "編集", customers_information_edit_path(customer), class: 'btn btn-outline-secondary btn-block' %>
         </div>
