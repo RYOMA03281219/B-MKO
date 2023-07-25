@@ -1,56 +1,59 @@
-<header>
-  <div class="logo">
-    <%= link_to root_path do %>
-      <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-left">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag 'B-MKO.jpg', size: '150x150', class: "logo_image", fallback: "ロゴ画像" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
+<div id="sp-menu">
+  <h2>B-MKO</h2>
+  <ul>
+    <li class="nav-item">
+      <button type="button" class="btn btn-black">
+        <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+          </svg>
+        マイページ
+        <% end %>
+      </button>
+    </li>
 
-  <div id="sp-menu">
-    <h2>B-MKO</h2>
-    <ul>
-      <li class="nav-item">
-        <button type="button" class="btn btn-black">
-          <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-            </svg>
-          マイページ
-          <% end %>
-        </button>
-      </li>
+    <li class="nav-item">
+      <button type="button" class="btn btn-black">
+        <%= link_to items_path, class: 'nav-link text-dark' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-2" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+          </svg>
+        投稿商品一覧
+        <% end %>
+      </button>
+    </li>
 
-      <li class="nav-item">
-        <button type="button" class="btn btn-black">
-          <%= link_to items_path, class: 'nav-link text-dark' do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diagram-2" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
-            </svg>
-          投稿商品一覧
-          <% end %>
-        </button>
-      </li>
+    <li class="nav-item">
+      <button type="button" class="btn btn-black">
+        <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-danger' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+            <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg>
+        ログアウト
+        <% end %>
+      </button>
+    </li>
+    <%= render 'layouts/customer_search' %>
+  </ul>
+</div>
 
-      <li class="nav-item">
-        <button type="button" class="btn btn-black">
-          <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-danger' do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
-              <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg>
-          ログアウト
-          <% end %>
-        </button>
-      </li>
-      <%= render 'layouts/customer_search' %>
-    </ul>
-  </div>
-
-  <div id="hm-icon">
-    <a class="menu-trigger" href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-    </a>
-  </div>
-</header>
+<div id="hm-icon">
+  <a class="menu-trigger" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</div>
