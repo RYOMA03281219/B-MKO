@@ -35,9 +35,8 @@
 
             <tr>
               <th><%= f.label :商品レビュー %></th>
-              <td><%= f.text_area :introduction, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
+              <td><%= f.text_area :review, autofocus: true, class: "form-control", placeholder: "商品レビュー", type: "review" %></td>
             </tr>
-
             <tr>
               <th><%= f.label :評価 %></th>
               <td>
@@ -49,7 +48,7 @@
           </table>
         </div>
         <div class="mb-2 item-action-btn">
-          <%= f.submit "変更", class: 'btn btn-outline-secondary btn-block' %>
+          <%= f.submit "変更", class: 'btn btn-outline-primary btn-block' %>
         </div>
       <% end %>
     </div>
