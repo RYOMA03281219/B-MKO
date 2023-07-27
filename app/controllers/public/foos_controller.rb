@@ -1,4 +1,4 @@
-class FoosController < ApplicationController
+class Public::FoosController < ApplicationController
   before_action :set_foo, only: %i[ show edit update destroy ]
 
   # GET /foos or /foos.json
