@@ -18,7 +18,7 @@
               <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
               <td><%= customer.email %></td>
               <td>
-                <% unless customer.is_delete %>
+                <% if customer.is_delete == true %>
                   <p>有効</p>
                 <% else %>
                   <p style= "color: red;">退会</p>
