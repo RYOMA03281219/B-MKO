@@ -27,7 +27,7 @@
             <tr>
               <td>会員ステータス</td>
               <td>
-                <% if @customer.is_delete %>
+                <% if @customer.is_delete == false %>
                   <span>有効</span>
                 <% else %>
                   <span style= "color: red;">退会</span>

@@ -3,6 +3,12 @@
     <div class="col-md-6 mx-sm-auto shadow p-3 mt-3 mb-5 bg-body rounded px-0 my-5">
       <%= form_with model: @admin, url: new_admin_session_path do |f| %>
         <h3 class="card-title text-center mb-4 mt-1">管理者ログイン</h3>
+        <% flash.each do |key, value| %>
+          <div class="error-message mb-4">
+            <%= content_tag :li, value, calss: key %>
+          </div>
+        <% end %>
+        <%= render 'layouts/error_messages', model: f.object %>
         <hr>
           <form>
             <div class="form-group">
