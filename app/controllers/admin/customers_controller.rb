@@ -25,7 +25,7 @@ class Admin::CustomersController < ApplicationController
   def withdrawal
     @customer = Customer.find(current_customer.id)
     @customer.update(is_delete: !@customer.is_deleted)
-    if @customer.is_deleted
+    if @customer.is_deleted == false
        flash[:notice] = "退会処理を実行いたしました"
     else
        flash[:notice] = "有効にします"
