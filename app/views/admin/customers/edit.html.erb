@@ -22,8 +22,8 @@
           <tr>
             <td><%= f.label :会員ステータス %></td>
             <td>
-              <%= f.radio_button :is_delete, true %><%= f.label :有効 %>
-              <%= f.radio_button :is_delete, false %><%= f.label :退会 %>
+              <%= f.radio_button :is_delete, false %><%= f.label :有効 %>
+              <%= f.radio_button :is_delete, true %><%= f.label :退会 %>
             </td>
           </tr>
         </table>
